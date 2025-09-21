@@ -29,7 +29,7 @@ npx serve .
 2. Run `vercel` and follow the prompts. Choose `Import an existing project`, set the root directory to the repository root, and accept the default build command and output directory (`public directory` should remain empty because this is a static deploy).
 3. For automatic deployments from GitHub, connect the `social-network` repository in the Vercel dashboard and select the `main` branch. Each push will trigger a new deployment.
 
-The included `vercel.json` enforces static hosting and an SPA-style catch-all route that falls back to `index.html`.
+The included `vercel.json` configures static hosting so Vercel serves `index.html` and its static assets directly.
 
 ## Environment & secrets
 
