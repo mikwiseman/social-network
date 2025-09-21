@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doggo Friends</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <h1>Doggo Friends</h1>
+        <p>
+          Мини-соцсеть для любителей собак. Добавьте свою карточку и находите
+          друзей для прогулок.
+        </p>
+      </div>
+      <div class="hero__stats">
+        <span class="hero__stat" id="stat-total">0 участников</span>
+        <span class="hero__stat" id="stat-dogs">0 собак</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="card-form" aria-labelledby="form-title">
+        <h2 id="form-title">Ваша карточка</h2>
+        <p class="card-form__hint">
+          Заполните форму, чтобы добавить себя в ленту участников. Данные
+          сохраняются только при открытой странице.
+        </p>
+        <form id="profile-form">
+          <div class="field">
+            <label for="owner-name">Ваше имя</label>
+            <input id="owner-name" name="ownerName" required maxlength="40" />
+          </div>
+          <div class="field">
+            <label for="dog-name">Имя собаки</label>
+            <input id="dog-name" name="dogName" required maxlength="40" />
+          </div>
+          <div class="field-grid">
+            <div class="field">
+              <label for="dog-breed">Порода</label>
+              <input
+                id="dog-breed"
+                name="dogBreed"
+                placeholder="Напр. Бордер-колли"
+                maxlength="40"
+              />
+            </div>
+            <div class="field">
+              <label for="dog-age">Возраст собаки</label>
+              <input
+                id="dog-age"
+                name="dogAge"
+                type="number"
+                min="0"
+                max="25"
+                placeholder="лет"
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label for="city">Город</label>
+            <input id="city" name="city" maxlength="40" />
+          </div>
+          <div class="field">
+            <label for="about">О себе и собаке</label>
+            <textarea
+              id="about"
+              name="about"
+              rows="3"
+              maxlength="260"
+              placeholder="Любим бегать по набережной по утрам..."
+            ></textarea>
+          </div>
+          <div class="field">
+            <label for="contacts">Контакты</label>
+            <input
+              id="contacts"
+              name="contacts"
+              maxlength="100"
+              placeholder="@username или телефон"
+            />
+          </div>
+          <button type="submit" class="btn">Добавить карточку</button>
+          <p class="card-form__note">
+            Карточка появится в общей ленте сразу после отправки.
+          </p>
+        </form>
+      </section>
+
+      <section class="card-feed" aria-labelledby="feed-title">
+        <header class="card-feed__header">
+          <h2 id="feed-title">Лента участников</h2>
+          <div class="filters">
+            <label class="filters__search">
+              <span class="sr-only">Поиск по имени</span>
+              <input
+                type="search"
+                id="search"
+                placeholder="Поиск по людям или собакам..."
+              />
+            </label>
+            <select id="city-filter" class="filters__city">
+              <option value="">Все города</option>
+            </select>
+          </div>
+        </header>
+        <ul id="cards" class="card-list" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <template id="card-template">
+      <li class="card">
+        <div class="card__avatar" aria-hidden="true"></div>
+        <div class="card__content">
+          <header class="card__header">
+            <h3 class="card__title"></h3>
+            <span class="card__city"></span>
+          </header>
+          <p class="card__dog"></p>
+          <p class="card__about"></p>
+          <p class="card__contacts"></p>
+        </div>
+      </li>
+    </template>
+
+    <footer class="footer">
+      <p>Doggo Friends · MVP для сообщества любителей собак</p>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
